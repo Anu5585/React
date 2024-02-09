@@ -1,0 +1,495 @@
+Why to learn react ? 
+job trend, hype  building UI.
+makes easy to manage and build complex front end
+When to learn react
+After mastering Js
+Most projects don't need react in initial phase.
+In a javascript we have state and in UI we have dom Basically the main purpose is to sync dom with JS.(idr say react start hua tha )
+React is consistent and it contain consistency.
+React is a library.
+Framework(In a framework naming convention is very important And roles are important ) vs library(cool dude type freedem is more bht sy treeqy sy km kiya jata h ) 
+Topics to learn.
+Core of react state(A state is like a variable or ui type) over UI manipulation. Jsx(JSX is like a written html in js).
+Component reusability 
+reusing of component probs.(probs = properties : properties = like keys, values )
+how to propagate change hook(hooks :: Use state use effect). 
+
+additional addon to react.
+
+router (react dont have router)
+
+State management (react don't have state management) And state management is a Javascript library it is not a react library.
+Some are redux , redux toolkit , zustand , context Api (Context Api  gives us hooks jis sy statemanagemt easy hota  h )
+
+
+
+tools : 
+vscode + nodejs  
+latest documentation link :  https://react.dev/
+
+
+web k lie : react + react-dom 
+Mob apps k lie : react + react-native
+learn react :
+installation >  start a new project > 
+
+
+Starting : 
+steps: 
+npx create-react-app 01basicreact (main folder created )
+cd 01basicreact  (folder mn any k lie )
+dir (is mn packaage.json hona chye tb e hm start script ko chla skty h )
+npm run start   (is sy script start ho ajyre gi or localhost py open ho ajye gi automatically )
+npm run build (is sy hmara 1 build nam ka folder ban jaye ga  or jb hm production mn app dalty h to ye build folder hi serve hota h all users ko )
+
+
+
+2nd method jo k ye uper wla kam easy krta h wo is link sy hoga (https://vitejs.dev/)
+how to use that : 
+link sy getting started > nechy idr sy cmnd : npm create vite@latest
+
+startt : 
+ 
+vite k through react ka project esy banata h 
+npm create vite@latest
+y
+01vitereact
+javascript 
+
+and how to run 
+01vitereact
+ls
+npm i (for node modules )
+
+isk k bad isko run krny k lie dekhan h pacakge.json mn jo scripts h udr sy esy : 
+npm run dev (ye hamaray project ko  local host py run krdy ga )
+
+hm hmesha src folder mn rhy gy 
+
+
+agr hm ny custom treqy sy sb del kr kch print kiya h to terminal kesy  use krna h kya likhna h? sb sy phly hmy pacakage.json mn jana h udr scripts mn dekhna h k kya likha hu ah wo run krna h 
+esy:		npm run start 
+
+
+
+agr yei kam vite k sath krna ho to : 
+npm run dev
+
+
+Understanding eract flow and structure : 
+2libararies li gai h ku k yei dono kam ati h  web k dom ko manipulate krny  k lie :
+import React from 'react'; 				(core foundational libary h jo k references wgra lyny ka kam krti h)
+import ReactDOM from 'react-dom/client'; 		(iska 1 implimentation h web py )
+
+
+
+
+so prtce for a small code project:
+procedure is same how to make app custom or vite 
+then make  a new jsx file in src folder :
+function Annas(){
+    return (
+        <h2>Project started 1st With Guide</h2>
+    );
+}
+
+export default Annas
+
+
+sec mn phly sy main.jsx or app.jsx h 
+
+ab hm ny jo fn bnanaya h annas wala usko app.jsx mn agr bhjna h to ese bhjy gy:
+import Annas from "./annas";  
+
+function App() {
+  return (
+    <Annas />
+    )
+}
+
+export default App
+
+
+fragment = (<></>)
+
+hm function mn 1  hi element return kr skty h us issue ko resolve krny k lie fragment use krty h eg: 
+import Annas from "./annas";  
+
+function App() {
+  return (
+    <>
+    <Annas />
+    <h1>Return more then 1 element </h1>
+    <p>esy hm fragment k andr multiple paras pass kr skty h </p>
+    </>
+    )
+}
+
+export default App
+
+
+
+ab agr yei uper wala same kam jo hmy vite sy kiya h usko create react app sy krna ho to esy kry gy : 
+same woi uper wala kam 
+src mn 1 js file bnao usmn 1 fn banana h esy :
+
+function Annas(){
+    return(
+        <>
+       
+        <h2>Practice for create-react-app</h2>
+        </>
+    )
+}
+
+export default Annas;
+
+app.js mn:
+
+import Annas from "./annas";
+function App() {
+  return (
+    <>
+     <Annas />
+  
+  </>
+  );  
+}
+
+export default App;
+
+
+How to make our personal React : 
+
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom React App</title>
+</head>
+<body>
+    <div class="root" id="root"></div>
+    <script src="./customreact.js"></script>
+</body>
+</html>
+
+js:
+function customRender(reactElement, container){
+    /*
+    const domElement = document.createElement(reactElement.type)
+    domElement.innerHTML = reactElement.children
+    domElement.setAttribute('href', reactElement.props.href)
+    domElement.setAttribute('target', reactElement.props.target)
+
+    container.appendChild(domElement)
+}*/
+
+// modified upper work 
+const domElement = document.createElement(reactElement.type)
+domElement.innerHTML = reactElement.children;
+
+for (const prop in reactElement.props) {
+    if (reactElement.props.hasOwnProperty(prop) && prop !== 'children') {
+        domElement.setAttribute(prop, reactElement.props[prop]);
+    }
+}
+
+container.appendChild(domElement)
+}
+
+
+const reactElement = {
+type: 'a',
+props:{
+    href: 'https://google.com',
+    target: '_blank',
+
+},
+children: 'click me to visit google.com'
+}
+
+const mainContainer = document.querySelector('#root')
+
+customRender(reactElement, mainContainer)
+
+
+
+how to inject variable in js: 
+
+
+
+function App() {
+const username ="anas"
+  return (
+    <>
+     <Annas />
+<h1> isko bolty h evaluated expression {username} </h1>  esy {} mn dalty h variable evaluated expression mn hm final output likhty h 
+  
+  </>
+  );  
+}
+
+export default App;
+
+
+
+			Hooks 
+why you need hooks and project ?
+Counter Project with hooks:  UI mn data hamesha hooks sy update hoga or Ui ko react khud dekhta or method deta h 
+
+import { useState } from 'react'  //hooks idr sy aty h is tarah sy aty h 
+
+how to usre hook: 
+
+eg : useState()   (ye hook hmri state ko change krny k lie responsible hoti h mtlb k is cahnge ko propagate kiya jata h hmaray UI k andr mtlb hamaray dom k andr )
+
+useState()  // () k andr default value kya dy skty h wo apni mrzi like : true , false , '' , annas , { } esy
+
+useState(15)
+
+
+const [counter , setCounter ] =useState(15)  	// ismn jo 0 index hota h ya jo value hoti h wo hoti h counter (nam kch b ho skta h ),    1index ya 2ry number py jo hota h wo hota  h 
+function  jisko hm usally hm set counter bolty h  [counter = variable , setCounter = function which is responsible to update counter/variable 
+
+
+project counter = : 
+
+
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+
+let [counter, setCounter ] =useState(0)
+
+
+  // let counter = 15
+  const addvalue = ()=>{
+    counter = counter + 1
+    setCounter(counter)
+
+  }
+const removeValue = ()=>{
+  setCounter(counter-1)
+  setCounter((prevCounter) => (prevCounter = 0 ? prevCounter - 1 : 0));
+
+  
+}
+  return (
+    <>
+  <h1>Annas Project</h1>
+  <h2>Conter Value : {counter}</h2>
+  <button
+  onClick= {addvalue}
+  >Add value {counter}</button>
+  <br />
+  <button
+  onClick={removeValue}
+  >Remove value {counter}</button>
+  <p>Footer: {counter}</p>
+
+  
+    </>
+  )
+}
+
+export default App
+
+Props :
+
+Tailwind Props : project with configration : 
+
+phlt vite sy e bna lo project then 
+goto tailwind css framework guide :   https://tailwindcss.com/docs/installation/framework-guides
+then  https://tailwindcss.com/docs/guides/vite  ye vite k lie h
+cra k lie  b available h 
+
+now : 
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p 
+guide all available on upper link open tailwind config css
+replace content with : 
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+
+available on guide 
+thrn index.css py ye top ya kahi b paste krni 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+then 
+
+npm run dev
+then use our tailwind css anywhere in project 
+eg:
+
+<h1 className='bg-green-400 text-black p-4 rounded-xl'>Tailwind Test</h1>      https://tailwindcss.com/ is sy builtin card wgra utha skty  
+
+ab kch error any h ku k closing tag tak is nechy walin exp mn error h img tag mn <img  /> eesy set hoga 
+
+
+<figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
+  <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/sarah-dayan.jpg" alt="" width="384" height="512">
+  <div class="pt-6 md:p-8 text-center md:text-lef space-y-4">
+    <blockquote>
+      <p class="text-lg font-medium">
+        “Tailwind CSS is the only framework that I've seen scale
+        on large teams. It’s easy to customize, adapts to any design,
+        and the build size is tiny.”
+      </p>
+    </blockquote>
+    <figcaption class="font-medium">
+      <div class="text-sky-500 dark:text-sky-400">
+        Sarah Dayan
+      </div>
+      <div class="text-slate-700 dark:text-slate-500">
+        Staff Engineer, Algolia
+      </div>
+    </figcaption>
+  </div>
+</figure>
+
+https://www.devui.io/components  builtin components 
+
+Now props: 
+
+make a new file or folder in a src folder then  make a file  like card.jsx 
+react ki extension intall kr k  rfce  likho to hmy ye rfce likhny sy dy deta h 
+import React from 'react'
+
+function card() {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default card 
+
+esy 
+ab uper jo ye div h uski jaga khud ka div return kr skty h  card.jsx
+
+import React from 'react'
+
+function card() {
+  return (
+    <div class="relative h-[400px] w-[300px] rounded-md ">
+<img
+  src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+  alt="AirMax Pro"
+  class="z-0 h-full w-full rounded-md object-cover"
+/>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-left">
+  <h1 class="text-lg font-semibold text-white">Delba</h1>
+  <p class="mt-2 text-sm text-gray-300">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+    debitis?
+  </p>
+  <button class="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-black">
+    View Profile →
+  </button>
+</div>
+</div>
+  )
+}
+
+export default card   
+
+app.jsx
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Card from './components/card'  import krna pryga 
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+     <h1 className='bg-green-400 text-black p-4 rounded-xl mb-4'>Tailwind Test</h1>
+      <Card />  ab in sab cards ka same name a raha h or hm chty h k sab ka alag alag name wgra aye to un sab ka sol h props 
+      <Card />
+      <Card />
+      <Card />
+    </>
+  )
+}
+
+export default App
+
+
+how to use props ? 
+hmny jo rtce sy bnaya tha 
+import React from 'react'
+
+function card(props) {  //pass kr na h    props= properties e 
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+
+app.jsx mn  jaha card dia h udr esy use kry gy        <Card channel = "Props using " />
+
+
+how to pass object in channel :
+function app()
+
+k nechy esy obj banaye gy 
+
+  let myObj = {
+    username : "Annas",
+    age: 20 
+  }
+
+or esy pass  kry gy :
+      <Card chaneel = "Props using " someobj={myObj} /> 			esy hi array wgra sab pass kr skty h 
+
+agr hm chaty h k hmry diff card py diff ho to us k lie 
+
+hm direct destructuring kry gy esy : card.jsx
+function card(username) {  //pass kr na h    props= properties e 
+  return (
+    <div>
+      
+    </div>
+  )
+}
+or app.jsx mn :
+
+      <Card username = "Annas using Props " someobj={myObj} />
+ab jdr jdr cardds mn name likha hua h udr destructuring kr do direct esy   :   {username}
+ab hmry pas jtny b cards h sab mn jo b pass krna h esy kry gy :
+<Card username = "Props using " someobj={myObj} /> ab hr jaga diff name aye ga 
+<Card username={"Annas" }/> 
+<Card username="Annas" btnText= "Click me"/> kr skty h chnging lkin reflect nai hongi changing us k lie hmy jdr hmra fn card (username , btnText) esy pass kr k phr nechy jo chnge krna h udr  {btnText dy gy } tb hoga change 
+
+
+
+how to give default value : eg for button : 
+ {btnText || "Default Value"} →    esy pipes lga k  
+or 2nd tareeqa asan wala  : 
+
+fn card (username , btnText= "Default Value")  is sy ye hoga k koi b value dy ga to chnge hoga wrna ye default value rhy gi or is sy readability better rhti h 
+ 
+
+
+
+useEffect , useRef and CallBack with project : (passwordGenerator)
+
+
+
+
