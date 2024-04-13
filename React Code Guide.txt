@@ -1,0 +1,144 @@
+intall ext on chrome :  react dev tools 
+
+thunder client vscode extension due get and post requests 
+extension : ES7 React/Redux/GraphQL/React-Native snippets
+
+now create react app (getting started )
+
+npx create-react-app my-app   /  npx create-react-app textutils   app k bad project ka name ata ha 
+
+
+if a form is a component Then the detail in a form is known as props Like if I filmed this form with my detail then this is known as my form that is known as props. 
+If I have a component and then I have a hiding Then the hiding is a part of state (details )
+
+to run react app we need to write      npm start  
+
+hm hemsha app.js ko edit krty h  
+
+
+
+
+JSX : 
+
+In react there are two types of components : 
+ function based components and 
+  class based component
+
+
+syntax : 
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React With Annas 
+        </a>
+      </header>
+    </div>
+  );
+}
+
+
+jsx  :    mtlb hm html k sath hm javascript use kr skty h (90% html hi  h )
+html + js  
+return k bad sy jo likha hota h wo jsx hota h 
+
+  <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React With Annas 
+        </a>
+      </header>
+    </div>
+
+
+due to reverve words : 
+is mn hm class ki jaga className hota h 
+for ki jaga hmy htmlFor likhhty h 
+
+
+jsx mn hm 1 hi element return kr skty h  <div className = "A" >✔️ <h1>A</h1> ❌
+
+
+fragment :
+<>
+ab is mn jtny mrzi elements dall lo 
+
+</>
+
+eg : 
+ let name = "Annas";
+
+
+ <h1>Hello {name}</h1> so idr hmra name show ho jaye gaa hello annas 
+
+1st React Component : 
+
+make a folder like components and then make a component like ( Navbar.js ) component name should be always capital  
+	agr hmy react function base component chye to just type   rfc to wo hmy khud ye code likh dy ga due to react extension: 
+		import React from 'react'
+
+export default function Navbar() {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+
+so is mn kch b h usko hm import kry gy app.js mn jdr hm main kam ya main file hoti ha udr jaa k component ka name likhy gy jesy  k hmny uper exp mn likha :
+	import Navbar from './components/Navbar';
+	<Navbar /> 
+	or ye hmrii website mn show ho jaye ga 
+		<Navbar title="TextUtils" / > //passing props
+
+kdr kdr dia h ? :
+app.js 
+
+function App(props) {
+  return (
+    <>
+<Navbar title="TextUtils" / > 
+    </>
+  );
+}
+
+
+
+navbar jo bnyaya udr  : 
+export default function Navbar(props) 
+title tha to esy: <a className="navbar-brand" href="/">{props.title}</a>
+
+
+Props: (properties)
+	custom component banaty h usmn hm kch chzy bhj skty h jo k wo use kr skty h apny andr
+
+		mtlb 1 component banaya ab hm us component k andr kch cheezay pass krna chaty h like k ye 1 component h or us compoent k andr kch variables h jo k mn btao ga k kya hongy 
+eg:
+	<Navbar title="TextUtils" about="AboutUs"/ > esy hm resue kr skty h compoents 
+
+		
+
+
+
+
